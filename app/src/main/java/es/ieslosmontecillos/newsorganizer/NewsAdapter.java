@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -32,7 +34,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         NewsArticle newsArticle = newsArticles.get(position);
         holder.titleTextView.setText(newsArticle.getTitle());
         holder.descriptionTextView.setText(newsArticle.getDescription());
-        Glide.with(holder.itemView.getContext()).load(newsArticle.getUrlToImage()).into(holder.imageView);
+        String imageUrl = newsArticle.getUrlToImage();
+        if (imageUrl == null || imageUrl.isEmpty()) {
+            // Cargar la imagen predeterminada
+            Glide.with(holder.itemView.getContext())
+                    .load(R.drawable.placeholder)
+                    .into(holder.imageView);
+        } else {
+            // Cargar la imagen de la noticia
+            Glide.with(holder.itemView.getContext())
+                    .load(imageUrl)
+                    .apply(new RequestOptions().placeholder(R.drawable.placeholder))
+                    .into(holder.imageView);
+        }
     }
 
     @Override
@@ -47,9 +61,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.titleTextView);
-            descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
-            imageView = itemView.findViewById(R.id.imageView);
+            titleTextView = itemView.findViewById(R.id.article_title);
+            descriptionTextView = itemView.findViewById(R.id.article_source);
+            imageView = itemView.findViewById(R.id.article_image_view);
         }
     }
 }
