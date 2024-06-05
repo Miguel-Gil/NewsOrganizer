@@ -40,24 +40,28 @@
                 android:id="@+id/btn_general"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:text="General" />
 
             <Button
                 android:id="@+id/btn_business"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:text="Business" />
 
             <Button
                 android:id="@+id/btn_technology"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:text="Technology" />
 
             <Button
                 android:id="@+id/btn_sports"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:text="Sports" />
 
         </LinearLayout>

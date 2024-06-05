@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         Button btnBusiness = findViewById(R.id.btn_business);
         Button btnTechnology = findViewById(R.id.btn_technology);
         Button btnSports = findViewById(R.id.btn_sports);
+
+
         btnGeneral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

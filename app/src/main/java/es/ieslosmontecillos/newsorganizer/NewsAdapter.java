@@ -1,5 +1,7 @@
 package es.ieslosmontecillos.newsorganizer;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
+
     private List<NewsArticle> newsArticles;
 
     public NewsAdapter(List<NewsArticle> newsArticles) {
@@ -32,6 +35,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         NewsArticle newsArticle = newsArticles.get(position);
+
         holder.titleTextView.setText(newsArticle.getTitle());
         holder.descriptionTextView.setText(newsArticle.getDescription());
         String imageUrl = newsArticle.getUrlToImage();
@@ -47,6 +51,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                     .apply(new RequestOptions().placeholder(R.drawable.placeholder))
                     .into(holder.imageView);
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), WebViewActivity.class);
+            intent.putExtra("url", newsArticle.getUrl());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override
