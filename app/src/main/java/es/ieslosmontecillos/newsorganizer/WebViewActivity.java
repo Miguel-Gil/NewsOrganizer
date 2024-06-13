@@ -18,7 +18,6 @@ public class WebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
-
         WebView webView = findViewById(R.id.webview);
 
         // Configuración del WebView

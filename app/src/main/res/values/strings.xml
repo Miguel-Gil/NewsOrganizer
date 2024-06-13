@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">NewsOrganizer</string>
     <string name="api_key">fdc82c461311443b8e40d2037e0d1930</string>
+    <string-array name="regions_array">
+        <item>USA</item>
+        <item>England</item>
+    </string-array>
+    <string-array name="regions_values">
+        <item>us</item>
+        <item>gb</item>
+    </string-array>
 </resources>
